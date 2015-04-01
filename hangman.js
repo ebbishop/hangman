@@ -27,7 +27,8 @@ $(document).ready(function(){
 	newGame();
 });
 
-var pics = ['https://cloud.githubusercontent.com/assets/8210523/6953499/b94c87da-d897-11e4-9982-3f10fad1e897.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953511/c78898fc-d897-11e4-8275-9eb4b8ca3285.gif',
+var pics = 
+['https://cloud.githubusercontent.com/assets/8210523/6953499/b94c87da-d897-11e4-9982-3f10fad1e897.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953511/c78898fc-d897-11e4-8275-9eb4b8ca3285.gif',
  'https://cloud.githubusercontent.com/assets/8210523/6953512/c788cc0a-d897-11e4-8368-62d8eae60e2d.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953514/c78b45ca-d897-11e4-8d12-8ff17e34fe72.gif',
  'https://cloud.githubusercontent.com/assets/8210523/6953516/c78c371e-d897-11e4-9593-05e6e7b46062.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953515/c78b57cc-d897-11e4-8153-7c1d6dd9bf21.gif',
  'https://cloud.githubusercontent.com/assets/8210523/6953513/c78af7a0-d897-11e4-86c7-b99b55402127.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953518/c7941164-d897-11e4-8f53-99ef9926adf9.gif',
@@ -121,7 +122,7 @@ revealLetter = function(letter){
 		var reveal = correctArray[i] + 1;
 		var revealID = 'a' + reveal;
 		//broken
-		document.getElementById(revealID).className = document.getElementById(revealID).className + ' correct';
+		document.getElementById(revealID).className = 'letter correct';
 		
 	}
 };
@@ -145,10 +146,9 @@ startPlay = function(){
 makeBlanks = function(){
 	var gridStr = '';
 	for(i=0;i<secretLen;i++){
-		gridStr = '<td class=\'blank letter\' id=\'a' + (i+1) + '\'>' + secretWord.charAt(i) + '</td>';
-		var grid = $(gridStr);
-		$('#solution tr').append(grid);
+		gridStr = gridStr + '<td class=\'blank letter\' id=\'a' + (i+1) + '\'>' + secretWord.charAt(i) + '</td>';
 	};
+	document.getElementById('solution').innerHTML = '<tr>' + gridStr + '</tr>';
 };
 
 isWord = function(){
@@ -162,8 +162,10 @@ isWord = function(){
 
 resetPlay = function(){
 	document.getElementById('secret').value='';
-	$('.letter').remove();
-	$('.opt').removeClass('guessed');
+	document.getElementById('solution').innerHTML='';
+	for (i=0;i<26;i++){
+		opt[i].className = 'opt';
+	}
 	lost=false;
 	won=false;
 	missCount=0;
@@ -179,7 +181,6 @@ enableLetters = function(){
 }
 /*
 TO DO:
--Kill the rest of the jQuery
+-Kill the $document.ready jQuery?
 -Make letters non-existant until they are guessed
--Prettify
 */
