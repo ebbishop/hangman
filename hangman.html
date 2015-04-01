@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<head>
+	
+	<link rel='stylesheet' type='text/css' href='stylesheet.css'>
+	<title>Hangman!</title>
+</head>
+
+<body>
+<header>
+	<h1 class='center'>Hangman</h1>
+</header>
+
+	<p class='center'>To play, enter a secret word:</p>
+	<br>
+	<div class='center'><input id='secret' type='password'>
+	<button id='play'>Play!</button></div>
+
+<br>
+<div class='center'>
+<div id='board'><img id='boardpic' src='00.gif'></div>
+<div id='letters'><!Letter Buttons>
+	<button class='opt'>A</button>
+	<button class='opt'>B</button>
+	<button class='opt'>C</button>
+	<button class='opt'>D</button>
+	<button class='opt'>E</button>
+	<button class='opt'>F</button>
+	<button class='opt'>G</button>
+	<button class='opt'>H</button>
+	<button class='opt'>I</button>
+	<button class='opt'>J</button>
+	<button class='opt'>K</button>
+	<button class='opt'>L</button>
+	<button class='opt'>M</button>
+	<button class='opt'>N</button>
+	<button class='opt'>O</button>
+	<button class='opt'>P</button>
+	<button class='opt'>Q</button>
+	<button class='opt'>R</button>
+	<button class='opt'>S</button>
+	<button class='opt'>T</button>
+	<button class='opt'>U</button>
+	<button class='opt'>V</button>
+	<button class='opt'>W</button>
+	<button class='opt'>X</button>
+	<button class='opt'>Y</button>
+	<button class='opt'>Z</button>
+</div>
+</div>
+<br><br>
+<div id='footer' class='center'>
+<center><table id='solution' class='center'>
+	<tr>
+	</tr>
+</table>
+</center>
+<br>
+<button id='restart'>New Game</button>
+</div>
+<script src='jquery-1.11.2.min.js'></script>
+<script type='text/javascript' src='hangman.js'></script>
+</body>	

@@ -1,0 +1,58 @@
+p, h1, td{
+	font-family: sans-serif;
+}
+
+div{
+	clear: both;
+}
+
+.center{
+	text-align: center;
+}
+
+.opt{
+	width: 30px;
+}
+
+#letters{
+	width: 100px;
+	display: inline-block;
+}
+#board{
+	height: 200px;
+	display: inline-block;
+	padding-right: 40px;
+}
+#boardpic{
+	height: 200px;
+}
+
+table{
+	height: 30px;
+	text-align: center;
+	border-spacing: 4px;
+}
+
+td{
+	border: 1px solid #000000;
+}
+
+.blank{
+	border-radius: 5px;
+	text-align: center;
+	width: 30px;
+	color: white;
+	background-color: white;
+}
+
+.correct{
+	font-weight: bold;
+	color: blue;
+	background-color: white;
+}
+
+.guessed{
+	color: white;
+	background-color: white;
+	border: white;
+}
