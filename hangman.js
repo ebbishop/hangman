@@ -27,17 +27,12 @@ $(document).ready(function(){
 	newGame();
 });
 
-var pic00 = 'https://cloud.githubusercontent.com/assets/8210523/6953499/b94c87da-d897-11e4-9982-3f10fad1e897.gif';
-var pic01 = 'https://cloud.githubusercontent.com/assets/8210523/6953511/c78898fc-d897-11e4-8275-9eb4b8ca3285.gif';
-var pic02 = 'https://cloud.githubusercontent.com/assets/8210523/6953512/c788cc0a-d897-11e4-8368-62d8eae60e2d.gif';
-var pic03 = 'https://cloud.githubusercontent.com/assets/8210523/6953514/c78b45ca-d897-11e4-8d12-8ff17e34fe72.gif';
-var pic04 = 'https://cloud.githubusercontent.com/assets/8210523/6953516/c78c371e-d897-11e4-9593-05e6e7b46062.gif';
-var pic05 = 'https://cloud.githubusercontent.com/assets/8210523/6953515/c78b57cc-d897-11e4-8153-7c1d6dd9bf21.gif';
-var pic06 = 'https://cloud.githubusercontent.com/assets/8210523/6953513/c78af7a0-d897-11e4-86c7-b99b55402127.gif';
-var pic07 = 'https://cloud.githubusercontent.com/assets/8210523/6953518/c7941164-d897-11e4-8f53-99ef9926adf9.gif';
-var pic08 = 'https://cloud.githubusercontent.com/assets/8210523/6953517/c7932a10-d897-11e4-9353-204622e1d001.gif';
-var pic09 = 'https://cloud.githubusercontent.com/assets/8210523/6953519/c794a070-d897-11e4-9a7d-b1dc29421e7a.gif';
-var pic10 = 'https://cloud.githubusercontent.com/assets/8210523/6953520/c7952662-d897-11e4-9785-0441d3ada7d4.gif';
+var pics = ['https://cloud.githubusercontent.com/assets/8210523/6953499/b94c87da-d897-11e4-9982-3f10fad1e897.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953511/c78898fc-d897-11e4-8275-9eb4b8ca3285.gif',
+ 'https://cloud.githubusercontent.com/assets/8210523/6953512/c788cc0a-d897-11e4-8368-62d8eae60e2d.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953514/c78b45ca-d897-11e4-8d12-8ff17e34fe72.gif',
+ 'https://cloud.githubusercontent.com/assets/8210523/6953516/c78c371e-d897-11e4-9593-05e6e7b46062.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953515/c78b57cc-d897-11e4-8153-7c1d6dd9bf21.gif',
+ 'https://cloud.githubusercontent.com/assets/8210523/6953513/c78af7a0-d897-11e4-86c7-b99b55402127.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953518/c7941164-d897-11e4-8f53-99ef9926adf9.gif',
+ 'https://cloud.githubusercontent.com/assets/8210523/6953517/c7932a10-d897-11e4-9353-204622e1d001.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953519/c794a070-d897-11e4-9a7d-b1dc29421e7a.gif', 
+ 'https://cloud.githubusercontent.com/assets/8210523/6953520/c7952662-d897-11e4-9785-0441d3ada7d4.gif'];
 
 newGame = function(){
 	document.getElementById('secret').focus();
@@ -132,13 +127,7 @@ revealLetter = function(letter){
 };
 
 buildScaffold = function(){
-	if(missCount<10){
-		countStr= '0'+missCount;
-	}else{
-		countStr=missCount;
-	};
-	document.getElementById('boardpic').src='pic'+countStr;
-	
+	document.getElementById('boardpic').src=pics[missCount];
 };
 
 startPlay = function(){
@@ -178,7 +167,7 @@ resetPlay = function(){
 	lost=false;
 	won=false;
 	missCount=0;
-	document.getElementById('boardpic').src=pic00;
+	document.getElementById('boardpic').src=pics[0];
 	document.getElementById('play').disabled=false;
 	enableLetters();
 };
