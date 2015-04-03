@@ -1,32 +1,33 @@
-var newGame;
+var newGame; //initialize game
 
-var secretWord;
-var secretLen;
-var isWord; //function to check for & reject numbers or special characters
+var secretWord; //word entered by user
+var secretLen; //word length
+var isWord; //function to check for & reject anything not a-z
 
-var letterChoice; //hides letter after it has been chosen, checks for previous guess
+var letterChoice; //hides & diables letter after it has been guessed
 var guessCheck; //checks each guess against the secret word for matches
 var missCount = 0; //running count of the number of incorrect guesses
 
 var solCheck; //checks the solution grid after each turn
 
-var startPlay;
-var resetPlay;
+var startPlay; //starts game: calls isWord, makeBlanks, etc
+var resetPlay; //re-sets variables for new game
 
-var revealLetter;
-var buildScaffold;
+var revealLetter; //reveals letters in solution grid
+var buildScaffold; //updates scaffold picture based on count of incorrect guesses
 
 var makeBlanks; //builds 'blank' spaces for letters in secret word
 var lost=false; //checks for current loss
 var won=false; //checks for current win
 
-var opt = document.getElementsByClassName('opt'); //opt class (letters)
-var enableLetters;
+var opt = document.getElementsByClassName('opt'); //opt class (array of letter buttons)
+var enableLetters; //enables and un-hides all letter buttons
 
 $(document).ready(function(){
 	newGame();
 });
 
+//array variable for pictures of scaffold
 var pics = 
 ['https://cloud.githubusercontent.com/assets/8210523/6953499/b94c87da-d897-11e4-9982-3f10fad1e897.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953511/c78898fc-d897-11e4-8275-9eb4b8ca3285.gif',
  'https://cloud.githubusercontent.com/assets/8210523/6953512/c788cc0a-d897-11e4-8368-62d8eae60e2d.gif', 'https://cloud.githubusercontent.com/assets/8210523/6953514/c78b45ca-d897-11e4-8d12-8ff17e34fe72.gif',
@@ -163,9 +164,6 @@ isWord = function(){
 resetPlay = function(){
 	document.getElementById('secret').value='';
 	document.getElementById('solution').innerHTML='';
-	for (i=0;i<26;i++){
-		opt[i].className = 'opt';
-	}
 	lost=false;
 	won=false;
 	missCount=0;
@@ -176,11 +174,16 @@ resetPlay = function(){
 
 enableLetters = function(){
 	for(i=0;i<26;i++){
+		opt[i].className = 'opt';
 		opt[i].disabled=false;
 	};
 }
+
 /*
 TO DO:
--Kill the $document.ready jQuery?
+-Kill the $(document).ready jQuery?
 -Make letters non-existant until they are guessed
+-Enable multiple words (allow spaces, add as a different class in solution grid)
+-Arrow keys for letter selection 
+-On enter key event to trigger startPlay
 */
