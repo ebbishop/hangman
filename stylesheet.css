@@ -37,12 +37,15 @@ td{
 	border: 1px solid #000000;
 }
 
-.blank{
+.letter{
 	border-radius: 5px;
 	text-align: center;
 	width: 30px;
-	color: white;
 	background-color: white;
+}
+
+.blank{
+	color: white;
 }
 
 .correct{
